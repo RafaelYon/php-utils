@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Utils\String\CaseStyles;
 
-use Utils\String\CaseStyles\PascalCase;
-
 class CamelCase extends PascalCase
 {
     public function join(array $parts): string

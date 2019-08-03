@@ -14,7 +14,7 @@ class CaseStyler
     {
         $this->setStyle($style);
     }
-    
+
     public function setStyle(CaseStyleContract $style)
     {
         $this->style = $style;

@@ -11,19 +11,15 @@ abstract class RegexCaseStyle
      *
      * @return string   The regex rule.
      */
-    protected abstract function getSeparatorRegexRule() : string;
+    protected abstract function getSeparatorRegexRule(): string;
 
-    public function split(string $text): array
+    protected function handlerSplitedParts(string $text, array $parts): array
     {
-        $parts = [];
-
-        preg_match_all($this->getSeparatorRegexRule(), $text, $parts, PREG_OFFSET_CAPTURE);
-        
         $result = [];
         $currentIndex = 0;
 
         foreach ($parts[0] as $part) {
-            if ($part[1] == 0) {
+            if ($part[1] === 0) {
                 $part = null;
                 continue;
             }
@@ -37,5 +33,19 @@ abstract class RegexCaseStyle
         }
 
         return $result;
+    }
+
+    public function split(string $text): array
+    {
+        $parts = [];
+
+        preg_match_all(
+            $this->getSeparatorRegexRule(),
+            $text,
+            $parts,
+            PREG_OFFSET_CAPTURE
+        );
+
+        return $this->handlerSplitedParts($text, $parts);
     }
 }
