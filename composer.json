@@ -1,0 +1,24 @@
+{
+    "name": "rafael-yon/utils",
+    "description": "A utils components for projects",
+    "type": "library",
+    "require": {
+        "php": "^7.0.0"
+    },
+    "require-dev": {
+        "nunomaduro/phpinsights": "^1.7",
+        "phpunit/phpunit": "^8.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael Antonio Yon",
+            "email": "rafaelyon.1999@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Utils\\": "utils/"
+        }
+    }
+}
