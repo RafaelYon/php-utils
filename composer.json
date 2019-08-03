@@ -1,6 +1,6 @@
 {
-    "name": "rafael-yon/utils",
-    "description": "A utils components for projects",
+    "name": "rafael-yon/php-utils",
+    "description": "A utils components for php projects",
     "type": "library",
     "require": {
         "php": "^7.0.0"
