@@ -19,11 +19,19 @@ class PathHelper
      */
     public static function join(array $paths): string
     {
+        for ($i = 0, $len = count($paths) - 1; $i <= $len; $i++) {
+            if ($i == 0) {
+                $paths[$i] = rtrim($paths[$i], DIRECTORY_SEPARATOR);
+            } elseif ($i == $len) {
+                $paths[$i] = ltrim($paths[$i], DIRECTORY_SEPARATOR);
+            } else {
+                $paths[$i] = trim($paths[$i], DIRECTORY_SEPARATOR);
+            }
+        }
+        
         return implode(
             DIRECTORY_SEPARATOR,
-            array_map(static function($path) {
-                return rtrim($path, DIRECTORY_SEPARATOR);
-            }, $paths)
+            $paths
         );
     }
 }
