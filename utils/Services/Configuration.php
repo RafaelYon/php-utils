@@ -35,7 +35,6 @@ abstract class Configuration extends Singleton
      *
      * @throws \InvalidArgumentException    If $configPath is not a valid
      *                                      doted key.
-     *                                      Ex.: "one.two.tree"
      * @throws \InvalidArgumentException    If fileName passed in $configPath
      *                                      is invalid.
      */
@@ -58,7 +57,7 @@ abstract class Configuration extends Singleton
             );
         }
 
-        $result->configKey  = mb_substr($configPath, $fileSeparatorPos);
+        $result->configKey  = mb_substr($configPath, $fileSeparatorPos + 1);
         return $result;
     }
 
@@ -106,7 +105,7 @@ abstract class Configuration extends Singleton
      *                                                  'Wanted data'
      *                                          ] ]
      *
-     * @return mixed    The value stored into specified "config path"
+     * @return mixed|null The value stored into specified "config path"
      *
      * @throws \InvalidArgumentException    If $configPath is not a vlaid doted
      *                                      key.
@@ -117,7 +116,7 @@ abstract class Configuration extends Singleton
      * @throws \UnexpectedValueException                If the content of config
      *                                                  file is not a array.
      */
-    protected function getConfig(string $configPath): mixed
+    protected function getConfig(string $configPath)
     {
         $configAccess = $this->handlerConfigPath($configPath);
 
@@ -144,11 +143,10 @@ abstract class Configuration extends Singleton
      *                                                  'Wanted data'
      *                                          ] ]
      *
-     * @return mixed    The value stored into specified "config path"
+     * @return mixed|null The value stored into specified "config path"
      *
      * @throws \InvalidArgumentException    If $configPath is not a valid
      *                                      doted key.
-     *                                      Ex.: "one.two.tree"
      * @throws \InvalidArgumentException    If fileName passed in $configPath
      *                                      is invalid.
      * @throws \Utils\Exceptions\FileNotFoundException  If file was not found.
@@ -156,7 +154,7 @@ abstract class Configuration extends Singleton
      *                                                  config file is not a
      *                                                  array.
      */
-    public static function get(string $configPath): mixed
+    public static function get(string $configPath)
     {
         return static::getInstance()->getConfig($configPath);
     }
