@@ -11,29 +11,29 @@ final class PathHelperTest extends TestCase
     {
         $this->assertEquals(
             'path/to/file.php',
-            PathHelper::join([
+            PathHelper::join(
                 'path/',
                 '/to/',
                 'file.php'
-            ])
+            )
         );
         
         $this->assertEquals(
             '/path/to/file.php',
-            PathHelper::join([
+            PathHelper::join(
                 '/path/',
                 'to',
                 '/file.php'
-            ])
+            )
         );
 
         $this->assertEquals(
             '/path/to/directory/',
-            PathHelper::join([
+            PathHelper::join(
                 '/path',
                 'to/',
                 '/directory/'
-            ])
+            )
         );
     }
 }

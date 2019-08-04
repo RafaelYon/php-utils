@@ -76,10 +76,10 @@ abstract class Configuration extends Singleton
      */
     protected function getConfigFileContents($fileName): array
     {
-        $fileName = PathHelper::join([
+        $fileName = PathHelper::join(
             $this->getConfigDirectoryPath(),
             $fileName . '.php',
-        ]);
+        );
 
         if (! file_exists($fileName)) {
             throw new FileNotFoundException($fileName);
