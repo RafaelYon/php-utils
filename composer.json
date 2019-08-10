@@ -1,6 +1,6 @@
 {
     "name": "rafael-yon/php-utils",
-    "description": "A utils components for php projects",
+    "description": "A collection of useful classes for PHP projects.",
     "type": "library",
     "require": {
         "php": "^7.0.0"
@@ -20,5 +20,6 @@
         "psr-4": {
             "Utils\\": "utils/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
